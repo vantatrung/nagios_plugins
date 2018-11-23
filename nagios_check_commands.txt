@@ -1,0 +1,9 @@
+command[check_db1]=/usr/lib64/nagios/plugins/check_tcp -H 127.0.0.1 -p 3306 -w 0.01 -c 0.05
+command[check_db2]=/usr/lib64/nagios/plugins/check_tcp -H 127.0.0.1 -p 5432 -w 0.01 -c 0.05
+command[check_disk]=/usr/lib64/nagios/plugins/check_disk -w 20% -c 10% -p / /data
+command[check_cpu]=/usr/lib64/nagios/plugins/check_cpu -w 70 -c 80
+command[check_mem]=/usr/lib64/nagios/plugins/check_mem -w 20 -c 10
+command[check_cert]=/usr/lib64/nagios/plugins/check_ssl_cert -H kv1vtl.cdn.ereka.vn -w 5 -c 2
+command[check_varnish]=/usr/lib64/nagios/plugins/check_http -I 10.240.152.201 -p 8080 -u http://10.240.152.201:8080/2018/01/01/health_check.jpg -e 200 -w 0.1 -c 0.2
+command[check_nginx]=/usr/lib64/nagios/plugins/check_http -I 10.240.152.201 -u https://cdn.ereka.vn/2018/01/01/health_check.jpg -e 301 -w 0.1 -c 0.2
+command[check_bamboo]=/usr/lib64/nagios/plugins/check_http -H bamboo.cyberspace.vn -u /allPlans.action --expect=200
